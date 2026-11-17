@@ -2,7 +2,7 @@
 
 ## Objetivo e continuidade
 
-Clone do TabNews desenvolvido com abordagem AI-Native durante o curso.dev/ia, de Filipe Deschamps. O projeto está na fase de estrutura inicial; o escopo da primeira funcionalidade de produto ainda precisa ser definido.
+Clone do TabNews desenvolvido com abordagem AI-Native durante o curso.dev/ia, de Filipe Deschamps. A página inicial é uma página em construção com temática de Fórmula 1, preservando o título original e o link do repositório. O escopo da primeira funcionalidade de produto ainda precisa ser definido.
 
 A apresentação e as orientações de execução estão em `README.md`. Dependências, scripts e resoluções devem ser consultados em `package.json` e `package-lock.json`, sem reproduzi-los aqui.
 
@@ -15,6 +15,8 @@ A apresentação e as orientações de execução estão em `README.md`. Depend�
 - **Política de manutenção aprovada:** avaliar a memória ao concluir tarefas, atualizando-a apenas quando houver informação duradoura. Essa política substitui a exigência inicial de registrar cada tarefa e evita transformar a memória em diário de execução.
 
 ## Limitação persistente
+
+- O som de passagem de carro é uma gravação real hospedada no próprio projeto, publicada por Heigh-hoo no Freesound sob CC0 1.0. A origem e a licença estão documentadas em `public/audio/README.md`. A reprodução automática depende da política do navegador; quando bloqueada, a página oferece um botão para iniciar o som por interação do visitante.
 
 A continuidade depende de o agente acessar e seguir as instruções e reconciliar a memória com a implementação. Não existe garantia de carregamento automático em todas as ferramentas nem monitoramento de edições manuais.
 

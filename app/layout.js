@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "TabNews Clone",
   description: "Clone do TabNews desenvolvido durante o curso.dev/ia.",
