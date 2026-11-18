@@ -14,9 +14,9 @@ A apresentação e as orientações de execução estão em `README.md`. Depend�
 - **Separação de responsabilidades aprovada:** `AGENTS.md` define o comportamento dos agentes; esta memória guarda apenas contexto duradouro. O histórico detalhado pertence ao Git e às revisões.
 - **Política de manutenção aprovada:** avaliar a memória ao concluir tarefas, atualizando-a apenas quando houver informação duradoura. Essa política substitui a exigência inicial de registrar cada tarefa e evita transformar a memória em diário de execução.
 
-## Limitação persistente
+## Áudio da página inicial
 
-- O som de passagem de carro é uma gravação real hospedada no próprio projeto, publicada por Heigh-hoo no Freesound sob CC0 1.0. A origem e a licença estão documentadas em `public/audio/README.md`. A reprodução automática depende da política do navegador; quando bloqueada, a página oferece um botão para iniciar o som por interação do visitante.
+- O som de passagem de carro é uma gravação real hospedada no próprio projeto, publicada por Heigh-hoo no Freesound sob CC0 1.0. A origem e a licença estão documentadas em `public/audio/README.md`. O som começa somente quando o visitante aciona o botão de reprodução. A página pede ao navegador que adie o carregamento do áudio até esse momento.
 
 A continuidade depende de o agente acessar e seguir as instruções e reconciliar a memória com a implementação. Não existe garantia de carregamento automático em todas as ferramentas nem monitoramento de edições manuais.
 

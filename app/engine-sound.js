@@ -9,20 +9,14 @@ const BUTTON_LABELS = {
   ready: "Ouvir a passagem de F1",
   loading: "Cancelar reprodução",
   playing: "Parar áudio",
-  blocked: "Ouvir a passagem de F1",
   error: "Tentar novamente",
 };
 const STATUS_MESSAGES = {
   ready: "",
   loading: "Carregando áudio…",
   playing: "Carro passando…",
-  blocked: "Toque para ouvir o som do motor.",
   error: "Não foi possível reproduzir o áudio. Tente novamente.",
 };
-
-function playbackErrorStatus(error) {
-  return error.name === "NotAllowedError" ? "blocked" : "error";
-}
 
 export default function EngineSound() {
   const audioRef = useRef(null);
@@ -31,20 +25,7 @@ export default function EngineSound() {
 
   useEffect(() => {
     const audio = audioRef.current;
-    let active = true;
-    audio.volume = PLAYBACK_VOLUME;
-
-    // O navegador pode exigir uma interação para permitir áudio automático.
-    audio.play().catch((error) => {
-      if (active && error.name !== "AbortError") {
-        setStatus(playbackErrorStatus(error));
-      }
-    });
-
-    return () => {
-      active = false;
-      audio.pause();
-    };
+    return () => audio.pause();
   }, []);
 
   async function togglePlayback() {
@@ -58,13 +39,14 @@ export default function EngineSound() {
     }
 
     setStatus("loading");
+    audio.volume = PLAYBACK_VOLUME;
     audio.currentTime = 0;
 
     try {
       await audio.play();
     } catch (error) {
       if (error.name !== "AbortError") {
-        setStatus(playbackErrorStatus(error));
+        setStatus("error");
       }
     }
   }
@@ -74,8 +56,7 @@ export default function EngineSound() {
       <audio
         ref={audioRef}
         src={AUDIO_SOURCE}
-        preload="auto"
-        onPlay={() => setStatus("loading")}
+        preload="none"
         onPlaying={() => setStatus("playing")}
         onPause={() => setStatus("ready")}
         onEnded={() => setStatus("ready")}
